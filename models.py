@@ -24,12 +24,17 @@ if uploaded_file is not None:
     predict_col_idx = col_dict[predict_col]
 
    # Datos que ingresa el usuario 
-    leads = st.number_input("Ingrese el valor de leads:", key="leads")
-    conversion_MO = st.number_input("Ingrese la tasa de conversión M0:", key="conversion_MO")
+    leads = st.number_input("Ingrese el valor de leads o valor de M:", key="leads")
+    conversion_MO = st.number_input("Ingrese la tasa de conversión M0 (Si no es leads, ingrese 1):", key="conversion_MO")
+
    
     # Predicción de columnas
     st.write(get_correlation_equation(df, predict_col_idx))
+
     predict_input = leads * conversion_MO
+
+    st.write("Valor MO:",predict_input)
+
     #predict_input = st.number_input(f"Ingrese el valor de {df.columns[predict_col_idx]} para predecir {predict_col}:", key="predict_input")
     predicted_values = []
     for i in range(predict_col_idx, len(col_names)):
