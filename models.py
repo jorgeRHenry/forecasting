@@ -59,6 +59,6 @@ if uploaded_file is not None:
         predicted_values_matrix[:, i-predict_col_idx] = predicted_values
         predict_input_matrix[:, i-predict_col_idx+1:] = predicted_values.reshape((-1, 1))  # Actualizar predict_input_matrix con los valores predichos
     
-st.write(f"Predicciones para {col_names[predict_col_idx:]}:\n{predicted_values_matrix}")
+st.table(f"Predicciones para {col_names[predict_col_idx:]}:\n{predicted_values_matrix}")
 
 
