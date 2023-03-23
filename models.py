@@ -50,7 +50,11 @@ if uploaded_file is not None:
         predicted_value = corr * float(predict_input) + df[col].mean() - corr * df[col_names[i-1]].mean()
         predicted_values.append(predicted_value)
         predict_input = predicted_value  # Actualizar predict_input con el valor predicho
-    st.write(f"Predicción para {col_names[predict_col_idx:]}: {predicted_values}")
-   
+    
+    # Crear DataFrame de pandas con los resultados
+    predicted_df = pd.DataFrame(predicted_values, columns=col_names[predict_col_idx:predict_col_idx+1])
+
+    # Mostrar tabla
+    st.table(predicted_df)
 
 
