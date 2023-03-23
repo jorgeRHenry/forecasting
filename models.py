@@ -42,7 +42,7 @@ if uploaded_file is not None:
     
 
 
-    predict_input = st.number_input(f"Ingrese el valor de {df.columns[predict_col_idx]} para predecir {predict_col}:", key="predict_input")
+    #predict_input = st.number_input(f"Ingrese el valor de {df.columns[predict_col_idx]} para predecir {predict_col}:", key="predict_input")
     predicted_values = []
     for i in range(predict_col_idx, len(col_names)):
         col = col_names[i]
